@@ -12,14 +12,14 @@
     <AssemblyName>FishOverflowDistributor</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <OutputPath>$(SolutionDir)\bin\$(Configuration)\$(AssemblyName)</OutputPath>
+    <OutputPath>$(SolutionDir)\bin\$(AssemblyName)\$(Configuration)</OutputPath>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <DefineConstants>TRACE;SUBNAUTICA DEBUG</DefineConstants>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
@@ -27,24 +27,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
     <Optimize>true</Optimize>
-    <DefineConstants>TRACE;SUBNAUTICA RELEASE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BelowZeroRelease|AnyCPU'">
-    <DebugType>none</DebugType>
-    <Optimize>true</Optimize>
-    <DefineConstants>TRACE;BELOWZERO RELEASE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BelowZeroDebug|AnyCPU'">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <DefineConstants>TRACE;BELOWZERO DEBUG</DefineConstants>
+    <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
@@ -60,68 +43,36 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="Assembly-CSharp" Condition="$(DefineConstants.Contains('SUBNAUTICA'))">
+    <Reference Include="Assembly-CSharp">
       <HintPath>$(SubnauticaDataManagedDir)\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Assembly-CSharp-firstpass" Condition="$(DefineConstants.Contains('SUBNAUTICA'))">
+    <Reference Include="Assembly-CSharp-firstpass">
       <HintPath>$(SubnauticaDataManagedDir)\Assembly-CSharp-firstpass.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="iTween" Condition="$(DefineConstants.Contains('SUBNAUTICA'))">
+    <Reference Include="iTween">
       <HintPath>$(SubnauticaDataManagedDir)\iTween.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="LitJson" Condition="$(DefineConstants.Contains('SUBNAUTICA'))">
+    <Reference Include="LitJson">
       <HintPath>$(SubnauticaDataManagedDir)\LitJson.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Mono.Cecil" Condition="$(DefineConstants.Contains('SUBNAUTICA'))">
+    <Reference Include="Mono.Cecil">
       <HintPath>$(SubnauticaDataManagedDir)\Mono.Cecil.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="UnityEngine" Condition="$(DefineConstants.Contains('SUBNAUTICA'))">
+    <Reference Include="UnityEngine">
       <HintPath>$(SubnauticaDataManagedDir)\UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="UnityEngine.CoreModule" Condition="$(DefineConstants.Contains('SUBNAUTICA'))">
+    <Reference Include="UnityEngine.CoreModule">
       <HintPath>$(SubnauticaDataManagedDir)\UnityEngine.CoreModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="UnityEngine.UI" Condition="$(DefineConstants.Contains('SUBNAUTICA'))">
+    <Reference Include="UnityEngine.UI">
       <HintPath>$(SubnauticaDataManagedDir)\UnityEngine.UI.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Assembly-CSharp" Condition="$(DefineConstants.Contains('BELOWZERO'))">
-      <HintPath>$(BelowZeroManagedDir)\Assembly-CSharp.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Assembly-CSharp-firstpass" Condition="$(DefineConstants.Contains('BELOWZERO'))">
-      <HintPath>$(BelowZeroManagedDir)\Assembly-CSharp-firstpass.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="iTween" Condition="$(DefineConstants.Contains('BELOWZERO'))">
-      <HintPath>$(BelowZeroManagedDir)\iTween.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="LitJson" Condition="$(DefineConstants.Contains('BELOWZERO'))">
-      <HintPath>$(BelowZeroManagedDir)\LitJson.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Mono.Cecil" Condition="$(DefineConstants.Contains('BELOWZERO'))">
-      <HintPath>$(BelowZeroManagedDir)\Mono.Cecil.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine" Condition="$(DefineConstants.Contains('BELOWZERO'))">
-      <HintPath>$(BelowZeroManagedDir)\UnityEngine.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.CoreModule" Condition="$(DefineConstants.Contains('BELOWZERO'))">
-      <HintPath>$(BelowZeroManagedDir)\UnityEngine.CoreModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.UI" Condition="$(DefineConstants.Contains('BELOWZERO'))">
-      <HintPath>$(BelowZeroManagedDir)\UnityEngine.UI.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="YamlDotNet">
@@ -138,36 +89,11 @@
     <None Include="config.yml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="mod_BelowZero.json" Condition="$(DefineConstants.Contains('BELOWZERO'))">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="mod_Subnautica.json" Condition="$(DefineConstants.Contains('SUBNAUTICA'))">
+    <None Include="mod.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup />
   <Import Project="..\Shared\SharedCode.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent Condition="$(DefineConstants.Contains('SUBNAUTICA RELEASE'))" >
-	copy "$(TargetDir)mod_Subnautica.json" "$(TargetDir)mod.json"
-	del "$(TargetDir)mod_Subnautica.json"
-	del "$(TargetDir)YamlDotNet.pdb"
-	del "$(TargetDir)YamlDotNet.xml"
-	</PostBuildEvent>
-    <PostBuildEvent Condition="$(DefineConstants.Contains('BELOWZERO RELEASE'))" >
-	copy "$(TargetDir)mod_BelowZero.json" "$(TargetDir)mod.json"
-	del "$(TargetDir)mod_BelowZero.json"
-	del "$(TargetDir)YamlDotNet.pdb"
-	del "$(TargetDir)YamlDotNet.xml"
-	</PostBuildEvent>
-    <PostBuildEvent Condition="$(DefineConstants.Contains('SUBNAUTICA DEBUG'))" >
-	copy "$(TargetDir)mod_Subnautica.json" "$(TargetDir)mod.json"
-	del "$(TargetDir)mod_Subnautica.json"
-	</PostBuildEvent>
-    <PostBuildEvent Condition="$(DefineConstants.Contains('BELOWZERO DEBUG'))" >
-	copy "$(TargetDir)mod_BelowZero.json" "$(TargetDir)mod.json"
-	del "$(TargetDir)mod_BelowZero.json"
-	</PostBuildEvent>
-  </PropertyGroup>
 </Project>
